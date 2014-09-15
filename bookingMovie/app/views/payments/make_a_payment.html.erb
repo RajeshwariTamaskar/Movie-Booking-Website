@@ -1,0 +1,63 @@
+<body class = "make_a_payment">
+
+<img class = "image-border">
+  <%=image_tag("horizontal-strip.jpg", alt: "Example Image")%>
+  
+</img>
+<div class="left">
+      <img class = "image-border-vertical">
+        <%=image_tag("vertical-strip.jpg", alt: "Example Image")%>
+      </img>
+ </div>
+<h2><u>Payment Details</u></h2>
+<div class="field">
+<%= label_tag :name_on_the_card %><br>
+<%= text_field_tag :name_on_the_card %>
+</div>
+<%= form_for(@payment) do |f| %>
+  
+  <div class="field">
+    <%= f.label :credit_card_num %><br>
+    <%= f.text_field :credit_card_num %>
+  </div>
+  <div class="field">
+    <%= f.label :cvv %><br>
+    <%= f.number_field :cvv %>
+  </div>
+  <div class="field">
+    <%= f.label :expiry_date %><br>
+    <%= f.datetime_select :expiry_date, :discard_minute => true, :discard_hour => true %>
+  </div>
+  <div class="field">
+    <%= f.label :street_name %><br>
+    <%= f.text_field :street_name %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :zipcode %><br>
+    <%= f.text_field :zipcode %>
+  </div>
+  <!-- <div class="field">
+    <%= f.label :amount_paid %><br>
+    <%= f.text_field :amount_paid %>
+  </div>
+  <div class="field">
+    <%= f.label :item_id %><br>
+    <%= f.number_field :item_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div> -->
+  <div class="actions">
+    <%= f.submit "Make Payment" %>
+  </div>
+<% end %>
+</body>

@@ -1,0 +1,50 @@
+<body class = "add_to_cart">
+
+<img class = "image-border">
+	<%=image_tag("horizontal-strip.jpg", alt: "Example Image")%>
+	
+</img>
+
+<div class="left">
+      <img class = "image-border-vertical">
+        <%=image_tag("vertical-strip.jpg", alt: "Example Image")%>
+      </img>
+ </div>
+<%= form_tag({controller: "payments", action: "make_a_payment"}, method: "post") do %>
+
+<h2><u>Booking Details</u></h2>
+
+<p id="notice"><%= notice %></p>
+
+<p><b>Theatre: <%= $theatres.name %></b></p>
+<p>Address: <%= $theatres.city %>,&nbsp;<%= $theatres.state %>,&nbsp;<%= $theatres.zipcode %></p>
+<p><b>Movie: <%= $movies.name %></b></p>
+
+<p><b>Date of Show: <%= $shows.date_of_show.to_date.to_formatted_s(:long_ordinal) %></b></p>
+ <p><b>Time of the Show: <%= $shows.start_time.strftime("%H:%M") %></b></p>
+
+<p>
+  <strong>Num of tickets:</strong>
+  <%= @shopping_cart.num_of_tickets %>
+</p>
+
+<p>
+  <strong>Total Amount Due:</strong>
+ $ <%= @shopping_cart.price_per_seat*@shopping_cart.num_of_tickets %>
+</p>
+<div class = "edit">
+<%= link_to 'Edit', edit_shopping_cart_path(@shopping_cart) %> <br>
+</div>
+<p><b>Check out as Guest</b></p>
+<div class= "button_1">
+<%= button_to "Make a Payment" %>
+</div>
+<% end %>
+
+<p><b>User Login</b></p>
+
+<div class= "button_1">
+<%= button_to "User Login", controller: "users", action: "login", method: "post" %>
+</div>
+
+</body>

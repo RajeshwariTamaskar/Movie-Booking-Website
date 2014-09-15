@@ -1,0 +1,50 @@
+
+
+<body class = "add_to_cart">
+<img class = "image-border">
+	<%=image_tag("horizontal-strip.jpg", alt: "Example Image")%>
+	
+</img>
+
+<div class="left">
+      <img class = "image-border-vertical">
+        <%=image_tag("vertical-strip.jpg", alt: "Example Image")%>
+      </img>
+ </div>
+ 
+ <h1>Book the Show</h1>
+ <div class = "date">
+ <b>Date of Show: <%= $shows.date_of_show.to_date.to_formatted_s(:long_ordinal) %></b><br>
+ Time of the Show: <%= $shows.start_time.strftime("%H:%M") %>
+</div>
+<div class = "selected">
+<%= form_tag({controller: "shopping_carts", action: "create"}, method: "post") do %>
+
+    <%= label_tag(:adults) %>
+    <%= select_tag (:num_of_tickets), options_for_select([['0', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8], ['9', 9], ['10', 10]]) %>&nbsp&nbsp&nbsp$8.50 per ticket<br><br>
+    <%= label_tag (:children) %>
+    <%= select_tag (:children), options_for_select([['0', 0],['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8], ['9', 9], ['10', 10]]) %>&nbsp&nbsp&nbsp$5.50 per ticket<br><br>
+    <%= label_tag (:seniors) %>
+    <%= select_tag (:seniors), options_for_select([['0', 0],['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8], ['9', 9], ['10', 10]]) %>&nbsp&nbsp&nbsp$6.50 per ticket<br><br>
+    <div class= "hidden_tag">
+    <%= select_tag (:show_id), options_for_select([['1', $shows.id]]) %><br>
+    </div>
+    <div class= "button">
+    <%= button_to "Add to shopping cart" %>
+    </div> 
+    
+<% end %>
+</div>
+</body>
+
+
+
+
+  
+   
+   
+   
+         
+
+ 
+

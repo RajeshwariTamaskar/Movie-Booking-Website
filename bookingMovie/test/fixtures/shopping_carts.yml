@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price_per_seat: 1.5
+  num_of_tickets: 1
+
+two:
+  price_per_seat: 1.5
+  num_of_tickets: 1

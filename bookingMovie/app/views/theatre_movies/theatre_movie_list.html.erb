@@ -1,0 +1,42 @@
+<body class = "theatre_movie">
+
+<img class = "image-border">
+    <%=image_tag("horizontal-strip.jpg", alt: "Example Image")%>
+</img>
+
+<div class="left">
+      <img class = "image-border-vertical">
+        <%=image_tag("vertical-strip.jpg", alt: "Example Image")%>
+      </img>
+ </div>  
+
+ <div class="center">
+
+    <h1>Now Showing</h1>
+          <% @theatre_movies.each do |df| %>
+              <% Movie.find(:all, :conditions => ["id = ?", df.movie_id]).each do |f| %> 
+                  <h2><%= f.name %></h2>
+                  <p><b>Language: </b><%= f.language %></p?
+                  <p>&nbsp;&nbsp;&nbsp;<b>Genre: </b><%= f.genre %></p>
+                  <p><b>IMBD Ratings: </b><%= f.imbd_rating %></p?
+                  <p>&nbsp;&nbsp;&nbsp;<b>Viewer Ratings: </b><%= f.review_rating %></p>
+                  <% Show.find(:all, :group => 'date_of_show', :conditions => ["movie_id = ?", df.movie_id]).each do |sf| %>
+                       <div class = "date">
+                        <%= sf.date_of_show.to_date.to_formatted_s(:long_ordinal) %>
+                       </div> 
+                        <% Show.find(:all, :conditions => ["date_of_show = ? AND movie_id = ?", sf.date_of_show.to_date, df.movie_id]).each do |dsf| %>
+                             <p>
+                              <%= link_to dsf.start_time.strftime("%H:%M"), {controller: "shopping_carts", action: "add_to_cart", show_id: dsf.id, movie_id: f.id, theatre_id: df.theatre_id, method: "get"} %>
+                              </p>
+                        <% end %>      
+                  <% end %>
+              <% end %>    
+          <% end %> 
+   </div>       
+</body>
+          
+                
+             
+                         
+
+     

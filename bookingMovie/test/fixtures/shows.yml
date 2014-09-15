@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2014-02-23 20:15:03
+  end_time: 2014-02-23 20:15:03
+  seats_avail: 1
+  screen_id: 1
+  movie_id: 1
+  date_of_show: 2014-02-23 20:15:03
+
+two:
+  start_time: 2014-02-23 20:15:03
+  end_time: 2014-02-23 20:15:03
+  seats_avail: 1
+  screen_id: 1
+  movie_id: 1
+  date_of_show: 2014-02-23 20:15:03

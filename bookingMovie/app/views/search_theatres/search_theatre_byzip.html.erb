@@ -1,0 +1,39 @@
+<body class = "search_theatre_byzip">
+
+  <img class = "image-border">
+    <%=image_tag("horizontal-strip.jpg", alt: "Example Image")%>
+  </img>
+  <div class="left">
+      <img class = "image-border-vertical">
+        <%=image_tag("vertical-strip.jpg", alt: "Example Image")%>
+      </img>
+ </div>     
+
+<div class="center">
+      <h2>List of Theatres</h2>
+
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zipcode</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @theatres.each do |df| %>
+             <tr>
+              <td><%= link_to df.name, {controller: "theatre_movies", action: "theatre_movie_list", theatre_id: df.id, method: "get"} %>
+              </td>
+              <td><%= df.city %></td>
+              <td><%= df.state %></td>
+              <td><%= df.zipcode %></td>
+           </tr>
+          <% end %>
+          </tbody>
+      </table>
+</div>
+</body>

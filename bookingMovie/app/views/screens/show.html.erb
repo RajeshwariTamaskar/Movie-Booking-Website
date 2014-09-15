@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type of:</strong>
+  <%= @screen.type_of %>
+</p>
+
+<p>
+  <strong>Num of seats:</strong>
+  <%= @screen.num_of_seats %>
+</p>
+
+<p>
+  <strong>Theatre:</strong>
+  <%= @screen.theatre_id %>
+</p>
+
+<%= link_to 'Edit', edit_screen_path(@screen) %> |
+<%= link_to 'Back', screens_path %>

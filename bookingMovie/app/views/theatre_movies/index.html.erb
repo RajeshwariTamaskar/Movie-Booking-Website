@@ -1,0 +1,29 @@
+<h1>Listing theatre_movies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Theatre</th>
+      <th>Movie</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @theatre_movies.each do |theatre_movie| %>
+      <tr>
+        <td><%= theatre_movie.theatre_id %></td>
+        <td><%= theatre_movie.movie_id %></td>
+        <td><%= link_to 'Show', theatre_movie %></td>
+        <td><%= link_to 'Edit', edit_theatre_movie_path(theatre_movie) %></td>
+        <td><%= link_to 'Destroy', theatre_movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Theatre movie', new_theatre_movie_path %>

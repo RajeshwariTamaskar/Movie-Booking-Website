@@ -1,0 +1,31 @@
+<h1>Listing screens</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type of</th>
+      <th>Num of seats</th>
+      <th>Theatre</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @screens.each do |screen| %>
+      <tr>
+        <td><%= screen.type_of %></td>
+        <td><%= screen.num_of_seats %></td>
+        <td><%= screen.theatre_id %></td>
+        <td><%= link_to 'Show', screen %></td>
+        <td><%= link_to 'Edit', edit_screen_path(screen) %></td>
+        <td><%= link_to 'Destroy', screen, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Screen', new_screen_path %>

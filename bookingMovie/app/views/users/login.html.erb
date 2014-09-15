@@ -1,0 +1,62 @@
+  <body class = "login">
+
+  <img class = "image-border">
+    <%=image_tag("horizontal-strip.jpg", alt: "Example Image")%>
+    
+  </img>
+
+  <div class="left">
+      <img class = "image-border-vertical">
+        <%=image_tag("vertical-strip.jpg", alt: "Example Image")%>
+      </img>
+ </div>
+
+<%= form_tag({controller: "users", action: "login"}, method: "post") do %>
+
+<h3><u>	Existing User</u></h3>
+
+    <div class="field">
+
+    <b><%= label_tag :username %></b>
+    <%= text_field_tag :username %><br><br>
+  
+    <b><%= label_tag :password %></b>
+    <%= password_field_tag :password %><br><br>
+
+    </div>
+    <div class="actions">
+    <%= button_to "Login" %>  
+    </div>  
+    
+<% end %>
+
+<h3><u>New User</u></h3>
+
+<%= form_for(@user) do |f| %>
+   
+   <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :repeat_password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+</body>

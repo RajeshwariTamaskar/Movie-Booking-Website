@@ -1,0 +1,36 @@
+<body class = "login">
+
+<img class = "image-border">
+  <%=image_tag("horizontal-strip.jpg", alt: "Example Image")%>
+  
+</img>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user.last_name %>
+</p>
+<div class="field">
+<%= link_to 'Edit', edit_user_path(@user) %> 
+</div>
+
+<%= form_tag({controller: "payments", action: "make_a_payment"}, method: "post") do %>
+ 
+ <div class="actions">
+<%= button_to "Make a Payment" %>
+</div>
+
+<% end %>
+
+</body>

@@ -1,0 +1,41 @@
+<%= form_for(@show) do |f| %>
+  <% if @show.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@show.errors.count, "error") %> prohibited this show from being saved:</h2>
+
+      <ul>
+      <% @show.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :start_time %><br>
+    <%= f.datetime_select :start_time, :discard_year => true, :discard_month => true, :discard_date => true %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br>
+    <%= f.datetime_select :end_time, :discard_year => true, :discard_month => true, :discard_date => true %>
+  </div>
+  <div class="field">
+    <%= f.label :seats_avail %><br>
+    <%= f.number_field :seats_avail %>
+  </div>
+  <div class="field">
+    <%= f.label :screen_id %><br>
+    <%= f.number_field :screen_id %>
+  </div>
+  <div class="field">
+    <%= f.label :movie_id %><br>
+    <%= f.number_field :movie_id %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_show %><br>
+    <%= f.datetime_select :date_of_show, :discard_year => true, :discard_minute => true, :discard_hour => true %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

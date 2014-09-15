@@ -1,0 +1,2 @@
+module SearchTheatresHelper
+end
